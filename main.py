@@ -14,6 +14,9 @@ LINE = (
 
 
 def main() -> None:
+    # Gate: the entry must stay one line, 1-140 chars, UTF-8.
+    if not (1 <= len(LINE) <= 140) or "\n" in LINE:
+        raise SystemExit("entry gate failed: must be one line, 1-140 chars")
     out_dir = os.environ.get("OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
